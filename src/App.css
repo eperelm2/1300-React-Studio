@@ -1,9 +1,75 @@
 /* Add styling for your page here */
 
-.App {
+body{
 
+}
+
+.App {
+    display:flex;
+    /* flex-direction: column; */
 }
 
 .BakeryItem {
   
+}
+
+img {
+    width: 100%
+}
+
+.bakery-side{
+    flex: 0 0 60vw; 
+    /* overflow-y: auto; Enable vertical scrolling for the menu */
+    /* border-right: 1px solid #ccc; Optional: add a border on the right for separation */
+    /* padding: 20px; */
+    margin-left: 20px;
+    
+}
+
+.bakery-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+
+    flex-grow: 1; 
+    overflow-y: auto;
+}
+
+.bakery-item{
+    border: 2px solid #acacac;
+    border-radius: 5px;
+}
+
+.bakery-item-desc {
+    text-align: center;
+}
+
+.cart{
+    flex: 1; /* Take up remaining space */
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+   
+}
+.price-and-button {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin:15px
+  }
+  
+  .price {
+    /* margin-right: 10px; Add some space between price and button */
+    margin-right: auto;
+  }
+
+.add-to-cart{
+    display:flex;
+    height:4vh;
+    justify-content: end;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.total{
+    margin-top: 10px;
 }

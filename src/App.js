@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
+import BakeryItem from "./components/BakeryItem";
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -46,45 +47,30 @@ function App() {
             
             
             {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-            
-            <div class="bakery-item">
-                <img src={item.image} alt="Bakery-img" />
-                <h3 class="bakery-item-desc"> {item.name} </h3>
-                <p class="bakery-item-desc"> {item.description}</p>
-                <div className="price-and-button">
-                      <p className="price">${item.price}</p>
-                      <button className="add-to-cart" onClick={() => addToCart(item.name, item.price)}>
-                        Add to cart
-                      </button>
-              </div>
-            </div>
-
-            // <p> {item.name}, {item.description}, </p> // replace with BakeryItem component //Bakery Item {index},
+            <BakeryItem key={index} item={item} addToCart={addToCart} /> 
             ))}
         </div>
     
     </div>
      
       <div>
-        <h2 class="cart">My Cart</h2>
-        {/* TODO: render a list of items in the cart */}
-        {cart.length === 0 ? (
-          <p class="cart">There is nothing in your cart right now!</p>
-        ) : (
-          <div className="cart">
-            {cart.map((item, index) => (
-              <div>
-                {itemQuantity[item]}x, {item}
-              </div>
-            ))}
-
-            <div class="total"> 
-            Total: ${cartPrice}
+      <h2 class="cart">My Cart</h2>
+      {/* TODO: render a list of items in the cart */}
+      {cart.length === 0 ? (
+        <p class="cart">There is nothing in your cart right now!</p>
+      ) : (
+        <div className="cart">
+          {cart.map((item, index) => (
+            <div>
+              {itemQuantity[item]}x, {item}
             </div>
+          ))}
 
-            
+          <div class="total"> 
+          Total: ${cartPrice}
           </div>
-        )}
+        </div>
+      )}
       </div>
     </div>
   );
